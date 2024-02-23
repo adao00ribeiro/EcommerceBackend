@@ -7,6 +7,6 @@ namespace Ecommerce.Api.Entities
 {
     public class Product
     {
-
+        public string Name { get; protected set;}
     }
 }
