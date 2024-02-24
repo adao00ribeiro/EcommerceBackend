@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {}
+    "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {}
   },
   "projects": {
-    "d:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {
+    "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
+        "projectUniqueName": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
         "projectName": "Ecommerce.Api",
-        "projectPath": "d:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
+        "projectPath": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
         "packagesPath": "C:\\Users\\adao-\\.nuget\\packages\\",
-        "outputPath": "d:\\Angular\\EcommerceBackend\\Ecommerce.Api\\obj\\",
+        "outputPath": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adao-\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -10,7 +10,7 @@ namespace Ecommerce.Api.Extensions;
     {
         public static void AddSwagger(this IServiceCollection services)
         {
- services.AddEndpointsApiExplorer();
+        services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
         {
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -19,13 +19,13 @@ namespace Ecommerce.Api.Extensions;
 
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Apocalipse.Api",
+                Title = "Ecommerce.Api",
                 Version = "v1"
             });
 
             options.SwaggerDoc("v2", new OpenApiInfo
             {
-                Title = "Apocalipse.Api",
+                Title = "Ecommerce.Api",
                 Version = "v2"
             });
 
