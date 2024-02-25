@@ -16,7 +16,6 @@ public static class ProblemDetailsSetup
                 return env.IsDevelopment() || env.IsStaging();
             };
 
-
             options.MapToStatusCode<NotImplementedException>(StatusCodes.Status501NotImplemented);
             options.MapToStatusCode<HttpRequestException>(StatusCodes.Status503ServiceUnavailable);
             options.MapToStatusCode<Exception>(StatusCodes.Status500InternalServerError);

@@ -1,5 +1,6 @@
 using Ecommerce.Api.Extensions;
 using Ecommerce.Api.IoC;
+using Hellang.Middleware.ProblemDetails;
 
 
 
@@ -24,7 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseProblemDetails();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseCors(builder => builder
