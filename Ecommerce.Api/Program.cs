@@ -8,12 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddCors();
+
 builder.Services.AddApiProblemDetails();
 builder.Services.AddControllers();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 builder.Services.AddSwagger();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(builder.Configuration);
+//builder.Services.AddAuthorizationPolicies();
 builder.Services.RegisterServices(builder.Configuration);
 
 
@@ -27,6 +30,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseProblemDetails();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors(builder => builder
     .SetIsOriginAllowed(orign => true)
