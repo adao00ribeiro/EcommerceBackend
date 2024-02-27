@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {}
+    "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {}
   },
   "projects": {
-    "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {
+    "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
+        "projectUniqueName": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
         "projectName": "Ecommerce.Api",
-        "projectPath": "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
+        "projectPath": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
         "packagesPath": "C:\\Users\\adao-\\.nuget\\packages\\",
-        "outputPath": "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\obj\\",
+        "outputPath": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adao-\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,17 +34,50 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Hellang.Middleware.ProblemDetails": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
