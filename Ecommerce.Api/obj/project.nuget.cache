@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pok1PxNtErvxS0/dHUHtF4Y0TTnX1C/9jNesnPkgQgZN4jA+hYhDG/q3Xss2guAtzWRB0+1TZu3NSAIIm9GRNg==",
+  "dgSpecHash": "U8bAcPrRIxG4FSLXB7k+9zBD53tOSOCCaO3gBtGxzyAXCsw+LaNq6cRfCLsvlgLAqm8o4vsYCIRpNO0DqXjatA==",
   "success": true,
-  "projectFilePath": "D:\\Angular\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
+  "projectFilePath": "D:\\ProjectsAspnet\\EcommerceBackend\\Ecommerce.Api\\Ecommerce.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adao-\\.nuget\\packages\\hellang.middleware.problemdetails\\6.5.1\\hellang.middleware.problemdetails.6.5.1.nupkg.sha512",
     "C:\\Users\\adao-\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

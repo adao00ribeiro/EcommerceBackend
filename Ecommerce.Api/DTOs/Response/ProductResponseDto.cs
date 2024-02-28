@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Ecommerce.Api.DTOs.Response;
-    public record ProductResponseDto
-    {
-        
-    }
+public record ProductResponseDto
+{
+
+}

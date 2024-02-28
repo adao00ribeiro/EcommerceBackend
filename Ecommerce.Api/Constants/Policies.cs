@@ -7,5 +7,5 @@ namespace Ecommerce.Api.Constants;
 
 public class Policies
 {
-
+    public const string HorarioComercial = nameof(HorarioComercial);
 }

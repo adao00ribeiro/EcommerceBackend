@@ -7,7 +7,7 @@ using Ecommerce.Api.Interfaces.Repositories.Shared;
 
 namespace Ecommerce.Api.Interfaces.Repositories;
 
-    public interface IProductRepository : IRepositoryBase<Product>
-    {
-        
-    }
+public interface IProductRepository : IRepositoryBase<Product>
+{
+    Task<IEnumerable<Product>> GetAllProducts();
+}
