@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Apocalipse.Application.DTOs.Response
-{
+namespace Ecommerce.Api.DTOs.Response;
+
     public record RegisterResponse
     {
         public bool Sucesso { get; private set; }
@@ -19,4 +19,3 @@ namespace Apocalipse.Application.DTOs.Response
         public void AdicionarErros(IEnumerable<string> erros) =>
             Erros.AddRange(erros);
     }
-}

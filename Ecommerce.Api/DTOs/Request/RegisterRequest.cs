@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Ecommerce.Api.DTOs.Request;
 
 public record RegisterRequest

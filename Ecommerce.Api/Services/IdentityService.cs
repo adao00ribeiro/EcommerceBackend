@@ -4,10 +4,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Apocalipse.Application.DTOs.Response;
 using Ecommerce.Api.Application.Interfaces.Services;
 using Ecommerce.Api.Configurations;
 using Ecommerce.Api.DTOs.Request;
+using Ecommerce.Api.DTOs.Response;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 

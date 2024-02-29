@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Apocalipse.Application.DTOs.Response
-{
+namespace Ecommerce.Api.DTOs.Response;
+
     public record LoginResponse
     {
         public bool Sucesso => Erros.Count == 0;
@@ -32,4 +32,3 @@ namespace Apocalipse.Application.DTOs.Response
         public void AdicionarErros(IEnumerable<string> erros) =>
             Erros.AddRange(erros);
     }
-}
