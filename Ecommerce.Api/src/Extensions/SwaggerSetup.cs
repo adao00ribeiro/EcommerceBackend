@@ -1,26 +1,29 @@
 
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
-
+using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Ecommerce.Api.src.Extensions;
 
-    public static class SwaggerSetup
+public static class SwaggerSetup
+{
+    public static void AddSwagger(this IServiceCollection services)
     {
-        public static void AddSwagger(this IServiceCollection services)
-        {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
         {
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
+            options.DocumentFilter<TagDescriptionsDocumentFilter>();
 
             options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "Ecommerce.Api",
-                Version = "v1"
+                Version = "v1",
+
             });
 
             options.SwaggerDoc("v2", new OpenApiInfo
@@ -28,6 +31,7 @@ namespace Ecommerce.Api.src.Extensions;
                 Title = "Ecommerce.Api",
                 Version = "v2"
             });
+            // Aqui estamos customizando a geração do Swagger para organizar as tags
 
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
@@ -63,6 +67,7 @@ namespace Ecommerce.Api.src.Extensions;
     public static void UseSwaggerUI(this WebApplication app)
     {
         app.UseSwagger();
+
         app.UseSwaggerUI(options =>
         {
             var apiVersionProvider = app.Services.GetService<IApiVersionDescriptionProvider>();

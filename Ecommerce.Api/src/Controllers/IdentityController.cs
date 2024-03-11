@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Api.src.Controllers;
-[ApiVersion("1.0")]
+
 public class IdentityController(IIdentityService _identityService) : ApiControllerBase
 {
     private readonly IIdentityService identityService = _identityService;

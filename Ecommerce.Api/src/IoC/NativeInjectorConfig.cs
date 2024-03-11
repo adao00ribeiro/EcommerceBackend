@@ -17,7 +17,10 @@ public static class NativeInjectorConfig
         services.AddDbContext<DataContext>(options =>
             options.UseSqlite(configuration.GetConnectionString("Database"))
         );
-         services.AddDefaultIdentity<IdentityUser>()
+        services.AddDbContext<IdentityDataContext>(options =>
+          options.UseSqlite(configuration.GetConnectionString("Database"))
+      );
+        services.AddDefaultIdentity<IdentityUser>()
                           .AddRoles<IdentityRole>()
                           .AddEntityFrameworkStores<IdentityDataContext>()
                           .AddDefaultTokenProviders();

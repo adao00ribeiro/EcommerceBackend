@@ -9,15 +9,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Api.src.Controllers;
 [ApiVersion("1.0")]
-    public class CategoryController(ICategoryRepository _categoryRepository) : ApiControllerBase
+
+
+
+public class CategoryController(ICategoryRepository _categoryRepository) : ApiControllerBase
+{
+    private readonly ICategoryRepository categoryRepository = _categoryRepository;
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Category>>> GetAll()
     {
-        private readonly ICategoryRepository categoryRepository = _categoryRepository;
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetAll()
-        {
-
-            return Ok(await this.categoryRepository.GetAllAsync());
-        }
-
+        return Ok(await this.categoryRepository.GetAllAsync());
     }
+
+}

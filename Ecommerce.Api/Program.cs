@@ -2,8 +2,6 @@ using Ecommerce.Api.src.Extensions;
 using Ecommerce.Api.src.IoC;
 using Hellang.Middleware.ProblemDetails;
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
