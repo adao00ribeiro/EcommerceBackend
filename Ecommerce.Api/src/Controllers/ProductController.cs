@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Api.src.Controllers;
 
+[ApiVersion("1.0")]
 public class ProductController(IProductRepository _productRepository) : ApiControllerBase
 {
   private readonly IProductRepository productRepository = _productRepository;

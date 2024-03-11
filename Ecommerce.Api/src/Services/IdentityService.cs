@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Ecommerce.Api.src.Application.Interfaces.Services;
 using Ecommerce.Api.src.Configurations;
 using Ecommerce.Api.src.DTOs.Request;
 using Ecommerce.Api.src.DTOs.Response;
+using Ecommerce.Api.src.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
