@@ -1,10 +1,12 @@
 
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Ecommerce.Api.src.SwaggerFilter;
+using Microsoft.AspNetCore.Mvc;
+using Ecommerce.Api.src.Controllers.Shared;
 namespace Ecommerce.Api.src.Extensions;
 
 public static class SwaggerSetup
@@ -18,21 +20,17 @@ public static class SwaggerSetup
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             options.IncludeXmlComments(xmlPath);
             options.DocumentFilter<TagDescriptionsDocumentFilter>();
-
             options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "Ecommerce.Api",
                 Version = "v1",
 
             });
-
             options.SwaggerDoc("v2", new OpenApiInfo
             {
                 Title = "Ecommerce.Api",
                 Version = "v2"
             });
-            // Aqui estamos customizando a geração do Swagger para organizar as tags
-
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = @"JWT Authorization header using the Bearer scheme. 
@@ -81,8 +79,18 @@ public static class SwaggerSetup
                 description.GroupName);
             }
             options.RoutePrefix = string.Empty;
-
+            options.EnableFilter();
             options.DocExpansion(DocExpansion.List);
         });
+    }
+
+    private static string GetRoutePrefix(MethodInfo methodInfo)
+    {
+        var controllerType = methodInfo.DeclaringType;
+        var routeAttribute = controllerType.GetCustomAttribute<RouteAttribute>();
+        if (routeAttribute == null)
+            return string.Empty;
+
+        return routeAttribute.Template.TrimEnd('/');
     }
 }

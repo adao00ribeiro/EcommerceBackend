@@ -6,7 +6,8 @@ using Ecommerce.Api.src.Entities.Shared;
 
 namespace Ecommerce.Api.src.Entities;
 
-    public class User : Entity
-    {
-        
-    }
+public class User : Entity
+{
+    public string Name;
+    public string Email;
+}

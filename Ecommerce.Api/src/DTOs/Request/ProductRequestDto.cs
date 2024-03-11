@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Api.src.DTOs.Request;
 
-    public record ProductRequestDto
-    {
-        
-    }
+public record ProductRequestDto
+{
+
+}

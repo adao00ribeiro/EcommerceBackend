@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Api.src.Controllers;
 [ApiVersion("1.0")]
-
-
-
 public class CategoryController(ICategoryRepository _categoryRepository) : ApiControllerBase
 {
     private readonly ICategoryRepository categoryRepository = _categoryRepository;
