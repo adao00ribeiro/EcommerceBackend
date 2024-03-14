@@ -12,4 +12,5 @@ public class CartDetail : Entity
     public long ProductId { get; set; }
     public Product Product { get; set; }
     public int Count { get; set; }
+
 }

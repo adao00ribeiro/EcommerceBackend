@@ -15,8 +15,8 @@ public class CartController(ICartRepository cartRepository) : ApiControllerBase
 {
     private readonly ICartRepository _repository = cartRepository;
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<CartDto>> FindById(string userId)
+    [HttpGet("user/{userId}")]
+    public async Task<ActionResult<CartDto>> FindByUserId(string userId)
     {
         var cart = await _repository.FindCartByUserId(userId);
         if (cart == null) return NotFound();
