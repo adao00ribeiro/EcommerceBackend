@@ -11,6 +11,10 @@ namespace Ecommerce.Api.src.Context;
 public class DataContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
+    public DbSet<CartDetail> CartDetails { get; set; }
+    public DbSet<CartHeader> CartHeaders { get; set; }
+
+
     public DataContext(DbContextOptions<DataContext> options) : base(options) { }
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
