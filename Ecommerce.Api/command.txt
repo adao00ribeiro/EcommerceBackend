@@ -1,0 +1,7 @@
+
+
+
+
+dotnet ef migrations add InitialDbData --context DataContext -s .\Ecommerce.Api
+
+dotnet ef database update --context DataContext -s .\Ecommerce.Api\

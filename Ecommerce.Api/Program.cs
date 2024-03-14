@@ -1,8 +1,6 @@
-using Ecommerce.Api.Extensions;
-using Ecommerce.Api.IoC;
+using Ecommerce.Api.src.Extensions;
+using Ecommerce.Api.src.IoC;
 using Hellang.Middleware.ProblemDetails;
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
