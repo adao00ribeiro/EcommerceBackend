@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Ecommerce.Api.src.Entities.Shared;
 
 namespace Ecommerce.Api.src.Entities;

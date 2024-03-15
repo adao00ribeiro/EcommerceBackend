@@ -26,6 +26,7 @@ public static class NativeInjectorConfig
                           .AddDefaultTokenProviders();
 
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICartRepository, CartRepository>();
         services.AddScoped<IIdentityService, IdentityService>();
     }
 }

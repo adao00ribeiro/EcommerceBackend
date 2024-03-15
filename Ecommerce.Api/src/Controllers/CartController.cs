@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Ecommerce.Api.src.Controllers.Shared;
 using Ecommerce.Api.src.DTOs;
 using Ecommerce.Api.src.Interfaces.Repositories;
@@ -23,17 +19,18 @@ public class CartController(ICartRepository cartRepository) : ApiControllerBase
         return Ok(cart);
     }
 
-    [HttpPost("{id}")]
+    [HttpPost()]
     public async Task<ActionResult<CartDto>> AddCart(CartDto cart)
     {
-
-        return Ok();
+        var cartTemp = await _repository.SaveOrUpdateCart(cart);
+        if (cartTemp == null) return NotFound();
+        return Ok(cartTemp);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut()]
     public async Task<ActionResult<CartDto>> UpdateCart(CartDto cart)
     {
-        var cartTemp = await _repository.UpdateCart(cart);
+        var cartTemp = await _repository.SaveOrUpdateCart(cart);
         if (cartTemp == null) return NotFound();
         return Ok(cartTemp);
     }

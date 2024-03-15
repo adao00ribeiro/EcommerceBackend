@@ -1,3 +1,5 @@
+using Ecommerce.Api.src.DTOs;
+
 namespace Ecommerce.Api.src.Entities;
 
 public class Cart
@@ -11,4 +13,5 @@ public class Cart
         CartDetails = cartDetails;
     }
 
+    
 }
