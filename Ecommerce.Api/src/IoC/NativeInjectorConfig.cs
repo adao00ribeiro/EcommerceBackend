@@ -25,8 +25,8 @@ public static class NativeInjectorConfig
                           .AddEntityFrameworkStores<IdentityDataContext>()
                           .AddDefaultTokenProviders();
 
-        services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICartRepository, CartRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IIdentityService, IdentityService>();
     }
 }

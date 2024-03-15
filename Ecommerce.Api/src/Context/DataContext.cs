@@ -4,12 +4,16 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Ecommerce.Api.src.Entities;
+using Ecommerce.Api.src.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Api.src.Context;
 
 public class DataContext : DbContext
 {
+
+
+    public DbSet<Category> Categorys { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<CartDetail> CartDetails { get; set; }
     public DbSet<CartHeader> CartHeaders { get; set; }
@@ -25,6 +29,8 @@ public class DataContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new CategoryMap());
+        modelBuilder.ApplyConfiguration(new ProductMap());
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
     }

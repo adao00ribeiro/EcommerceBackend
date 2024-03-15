@@ -20,10 +20,10 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
        .AsNoTracking()
        .ToListAsync();
     }
-    public virtual async Task<TEntity?> GetByIdAsync(int id) =>
+    public virtual async Task<TEntity?> GetByIdAsync(string id) =>
         await Context.Set<TEntity>().FindAsync(id);
 
-    public virtual async Task<int> AddAsync(TEntity objeto)
+    public virtual async Task<string> AddAsync(TEntity objeto)
     {
         Context.Add(objeto);
         await Context.SaveChangesAsync();
@@ -42,7 +42,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
         await Context.SaveChangesAsync();
     }
 
-    public virtual async Task RemoveByIdAsync(int id)
+    public virtual async Task RemoveByIdAsync(string id)
     {
         var objeto = await GetByIdAsync(id);
         if (objeto == null)

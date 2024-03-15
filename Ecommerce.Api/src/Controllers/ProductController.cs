@@ -16,7 +16,6 @@ public class ProductController(IProductRepository _productRepository) : ApiContr
   [HttpGet]
   public async Task<ActionResult<IEnumerable<Product>>> GetAll()
   {
-
     return Ok(await this.productRepository.GetAllProducts());
   }
 

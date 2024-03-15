@@ -16,7 +16,6 @@ public class CategoryController(ICategoryRepository _categoryRepository) : ApiCo
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Category>>> GetAll()
     {
-
         return Ok(await this.categoryRepository.GetAllAsync());
     }
 

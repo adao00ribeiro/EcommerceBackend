@@ -36,7 +36,7 @@ public class CartController(ICartRepository cartRepository) : ApiControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<CartDto>> RemoveCart(int id)
+    public async Task<ActionResult<CartDto>> RemoveCart(string id)
     {
         var status = await _repository.RemoveFromCart(id);
         if (!status) return BadRequest();

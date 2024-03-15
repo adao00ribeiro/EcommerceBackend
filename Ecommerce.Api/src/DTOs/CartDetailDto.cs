@@ -4,10 +4,10 @@ namespace Ecommerce.Api.src.DTOs;
 
 public record CartDetailDto
 {
-    public long Id { get; set; }
-    public long CartHeaderId { get; set; }
+    public string Id { get; set; }
+    public string CartHeaderId { get; set; }
     public CartHeaderDto CartHeader { get; set; }
-    public long ProductId { get; set; }
+    public string ProductId { get; set; }
     public ProductDto Product { get; set; }
     public int Count { get; set; }
 
@@ -29,11 +29,9 @@ public record CartDetailDto
     internal static CartDetail ConvertToEntity(CartDetailDto dto)
     {
         return new CartDetail(
+            dto.Count,
             dto.CartHeaderId,
-            CartHeaderDto.ConvertToEntity(dto.CartHeader),
-            dto.ProductId,
-            ProductDto.ConvertToEntity(dto.Product),
-            dto.Count
+            dto.ProductId
         );
     }
 }

@@ -78,7 +78,7 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
     {
         throw new NotImplementedException();
     }
-    public async Task<bool> RemoveFromCart(long cartDetailsId)
+    public async Task<bool> RemoveFromCart(string cartDetailsId)
     {
         try
         {
