@@ -22,7 +22,7 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
     public async Task<CartDto> FindCartByUserId(string userId, DataContext dataContext)
     {
         CartHeader? header = await dataContext.CartHeaders.FirstOrDefaultAsync(c => c.UserId == userId);
-        var details = dataContext.CartDetails.Where(c => c.CartHeaderId == header.Id).Include(c => c.Product);
+        var details = dataContext.CartDetails.Where(c => c.CartHeaderId == header.Id.ToString()).Include(c => c.Product);
         Cart cart = new(header, details);
         return CartDto.ConvertToDto(cart);
     }
@@ -83,7 +83,7 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
         try
         {
             CartDetail cartDetail = await dataContext.CartDetails
-                .FirstOrDefaultAsync(c => c.Id == cartDetailsId);
+                .FirstOrDefaultAsync(c => c.Id.ToString() == cartDetailsId);
 
             int total = dataContext.CartDetails
                 .Where(c => c.CartHeaderId == cartDetail.CartHeaderId).Count();
@@ -93,7 +93,7 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
             if (total == 1)
             {
                 var cartHeaderToRemove = await dataContext.CartHeaders
-                    .FirstOrDefaultAsync(c => c.Id == cartDetail.CartHeaderId);
+                    .FirstOrDefaultAsync(c => c.Id.ToString() == cartDetail.CartHeaderId);
                 dataContext.CartHeaders.Remove(cartHeaderToRemove);
             }
             await dataContext.SaveChangesAsync();

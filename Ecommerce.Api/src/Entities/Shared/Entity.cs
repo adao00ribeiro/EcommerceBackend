@@ -2,5 +2,5 @@ namespace Ecommerce.Api.src.Entities.Shared;
 
 public abstract class Entity
 {
-      public Guid Id { get; protected set; }
+      public string Id { get; protected set; }
 }
