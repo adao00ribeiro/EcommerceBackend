@@ -32,7 +32,18 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
 
     public virtual async Task UpdateAsync(TEntity objeto)
     {
-        Context.Entry(objeto).State = EntityState.Modified;
+          var objetUpdate = await GetByIdAsync("41259109-0478-43e6-8a3f-1addc3a5c349");
+        if (objetUpdate == null)
+            throw new Exception("O registro não existe na base de dados.");
+         foreach (var prop in objeto.GetType().GetProperties())
+        {
+            var entityProp = typeof(TEntity).GetProperty(prop.Name);
+            if (entityProp != null)
+            {
+                entityProp.SetValue(objetUpdate, prop.GetValue(objeto));
+            }
+        }
+         Context.Entry(objetUpdate).State = EntityState.Modified;
         await Context.SaveChangesAsync();
     }
 

@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Xml;
 using Ecommerce.Api.src.Controllers.Shared;
 using Ecommerce.Api.src.DTOs;
-using Ecommerce.Api.src.Entities;
 using Ecommerce.Api.src.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +10,38 @@ public class CategoryController(ICategoryRepository _categoryRepository) : ApiCo
 {
     private readonly ICategoryRepository categoryRepository = _categoryRepository;
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Category>>> GetAll()
+    [HttpGet("all")]
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll()
     {
         return Ok(await this.categoryRepository.GetAllAsync());
     }
-     [HttpPost]
+     [HttpPost()]
     public async Task<ActionResult<CategoryDto>> Create(CategoryDto dto)
     {
         return Ok(await this.categoryRepository.AddAsync(CategoryDto.ConvertToEntity(dto))); 
     }
+ 
+    [HttpGet("id/{id}")]
+    public async Task<ActionResult<CategoryDto>> FindOneById(string id)
+    {
+        return Ok(await this.categoryRepository.GetByIdAsync(id)); 
+    }
+  
+    [HttpPut("id/{id}")]
+
+    public async Task<ActionResult<CategoryDto>> Update(string id, CategoryDto dto)
+    {   
+         var cate =    CategoryDto.ConvertToEntity(dto);
+         cate.Id = id;
+        await this.categoryRepository.UpdateAsync(cate );
+        return Ok(); 
+    }
+    [HttpDelete("id/{id}")]
+    public async Task<ActionResult<CategoryDto>> Delete(string id)
+    {
+        await this.categoryRepository.RemoveByIdAsync(id);
+        return Ok(); 
+    }
+    
 }
+

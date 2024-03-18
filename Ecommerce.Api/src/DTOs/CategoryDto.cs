@@ -12,6 +12,6 @@ public record CategoryDto
 
     internal static Category ConvertToEntity(CategoryDto dto)
     {
-       return new Category(dto.Name,dto.Slug);
+       return new Category(dto.Name.ToLower(),dto.Slug.ToLower());
     }
 }
