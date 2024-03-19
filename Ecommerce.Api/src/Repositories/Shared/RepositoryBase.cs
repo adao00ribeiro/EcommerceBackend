@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Ecommerce.Api.src.Context;
 using Ecommerce.Api.src.Entities.Shared;
 using Ecommerce.Api.src.Interfaces.Repositories.Shared;
@@ -14,11 +11,18 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
     protected readonly DataContext Context;
     public RepositoryBase(DataContext dataContext) =>
     Context = dataContext;
-    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includeProperties)
     {
-        return await Context.Set<TEntity>()
-       .AsNoTracking()
-       .ToListAsync();
+
+        IQueryable<TEntity> query = Context.Set<TEntity>().AsNoTracking();
+
+        foreach (var includeProperty in includeProperties)
+        {
+            query = query.Include(includeProperty);
+        }
+
+        return await query.ToListAsync();
+
     }
     public virtual async Task<TEntity?> GetByIdAsync(string id) =>
         await Context.Set<TEntity>().FindAsync(id);
