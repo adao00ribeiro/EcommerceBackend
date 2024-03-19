@@ -13,7 +13,7 @@ public record ProductResponseDto
     public int Quantity { get; set; }
     public string Tags { get; set; }
     public string CategoryId { get; set; }
-    public CategoryDto? Category { get; set; }
+    public CategoryResponseDto? Category { get; set; }
 
     internal static ProductResponseDto ConvertToDto(Product product)
     {
@@ -28,7 +28,7 @@ public record ProductResponseDto
             Quantity = product.Quantity,
             Tags = product.Tags,
             CategoryId = product.CategoryId,
-            Category = CategoryDto.ConvertToDto(product.Category)
+            Category = CategoryResponseDto.ConvertToDto(product.Category)
         };
     }
 

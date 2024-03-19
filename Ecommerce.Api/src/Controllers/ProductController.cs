@@ -1,7 +1,3 @@
-using System.Net;
-
-using Ecommerce.Api.src.Entities;
-using Ecommerce.Api.src.Exceptions;
 using Ecommerce.Api.src.Interfaces.Repositories;
 using Ecommerce.Api.src.Controllers.Shared;
 using Microsoft.AspNetCore.Mvc;

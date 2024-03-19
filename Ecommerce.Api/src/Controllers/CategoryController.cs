@@ -1,6 +1,6 @@
-using System.Xml;
 using Ecommerce.Api.src.Controllers.Shared;
 using Ecommerce.Api.src.DTOs;
+using Ecommerce.Api.src.DTOs.Request;
 using Ecommerce.Api.src.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,33 +11,34 @@ public class CategoryController(ICategoryRepository _categoryRepository) : ApiCo
     private readonly ICategoryRepository categoryRepository = _categoryRepository;
 
     [HttpGet("all")]
-    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll()
+    public async Task<ActionResult<IEnumerable<CategoryResponseDto>>> GetAll()
     {
         return Ok(await this.categoryRepository.GetAllAsync());
     }
      [HttpPost()]
-    public async Task<ActionResult<CategoryDto>> Create(CategoryDto dto)
+    public async Task<ActionResult<string>> Create(CategoryRequestDto dto)
     {
-        return Ok(await this.categoryRepository.AddAsync(CategoryDto.ConvertToEntity(dto))); 
+        return Ok( await this.categoryRepository.AddAsync(CategoryRequestDto.ConvertToEntity(dto))); 
     }
  
     [HttpGet("id/{id}")]
-    public async Task<ActionResult<CategoryDto>> FindOneById(string id)
+    public async Task<ActionResult<CategoryResponseDto>> FindOneById(string id)
     {
-        return Ok(await this.categoryRepository.GetByIdAsync(id)); 
+       var categorytemp =  await this.categoryRepository.GetByIdAsync(id);
+        return Ok(CategoryResponseDto.ConvertToDto(categorytemp)); 
     }
   
     [HttpPut("id/{id}")]
 
-    public async Task<ActionResult<CategoryDto>> Update(string id, CategoryDto dto)
+    public async Task<ActionResult<CategoryResponseDto>> Update(string id, CategoryRequestDto dto)
     {   
-         var cate =    CategoryDto.ConvertToEntity(dto);
+         var cate = CategoryRequestDto.ConvertToEntity(dto);
          cate.Id = id;
-        await this.categoryRepository.UpdateAsync(cate );
+        await this.categoryRepository.UpdateAsync(cate);
         return Ok(); 
     }
     [HttpDelete("id/{id}")]
-    public async Task<ActionResult<CategoryDto>> Delete(string id)
+    public async Task<ActionResult<CategoryResponseDto>> Delete(string id)
     {
         await this.categoryRepository.RemoveByIdAsync(id);
         return Ok(); 
