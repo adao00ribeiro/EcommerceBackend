@@ -11,8 +11,6 @@ namespace Ecommerce.Api.src.Context;
 
 public class DataContext : DbContext
 {
-
-
     public DbSet<Category> Categorys { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<CartDetail> CartDetails { get; set; }
