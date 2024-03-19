@@ -8,7 +8,7 @@ public record CartDetailDto
     public string CartHeaderId { get; set; }
     public CartHeaderDto CartHeader { get; set; }
     public string ProductId { get; set; }
-    public ProductDto Product { get; set; }
+    public ProductResponseDto Product { get; set; }
     public int Count { get; set; }
 
 
@@ -20,7 +20,7 @@ public record CartDetailDto
             CartHeaderId = detail.CartHeaderId,
             CartHeader = CartHeaderDto.ConvertToDto(detail.CartHeader),
             ProductId = detail.ProductId,
-            Product = ProductDto.ConvertToDto(detail.Product),
+            Product = ProductResponseDto.ConvertToDto(detail.Product),
             Count = detail.Count
 
         };

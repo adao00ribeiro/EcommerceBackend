@@ -39,8 +39,6 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
     }
     public async Task<CartDto> SaveOrUpdateCart(CartDto cartdto)
     {
-
-
         //Check if CartHeader is null
         var cartHeader = await dataContext.CartHeaders.AsNoTracking().FirstOrDefaultAsync(
             c => c.UserId == cartdto.CartHeader.UserId);
@@ -66,12 +64,9 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
     private async Task<Cart> UpdateCart(CartDto dto)
     {
         Cart cart = CartDto.ConvertToEntity(dto);
-        //If CartHeader is not null
-        //Check if CartDetails has same product
         var cartDetail = await dataContext.CartDetails.AsNoTracking().FirstOrDefaultAsync(
             p => p.ProductId == dto.CartDetails.FirstOrDefault().ProductId &&
             p.CartHeaderId == dto.CartHeader.Id);
-
         return cart;
     }
     public async Task<bool> RemoveCoupon(string userId)

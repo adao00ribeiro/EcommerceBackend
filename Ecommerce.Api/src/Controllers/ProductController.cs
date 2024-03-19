@@ -6,6 +6,7 @@ using Ecommerce.Api.src.Interfaces.Repositories;
 using Ecommerce.Api.src.Controllers.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Ecommerce.Api.src.DTOs;
+using Ecommerce.Api.src.DTOs.Request;
 
 namespace Ecommerce.Api.src.Controllers;
 
@@ -15,34 +16,35 @@ public class ProductController(IProductRepository _productRepository) : ApiContr
   private readonly IProductRepository productRepository = _productRepository;
 
   [HttpGet("all")]
-  public async Task<ActionResult<IEnumerable<ProductDto>>> GetAll()
+  public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetAll()
   {
-    return Ok(await this.productRepository.GetAllAsync());
+    var listProduct = await this.productRepository.GetAllAsync(x => x.Category);
+    return Ok(listProduct.Select(x => ProductResponseDto.ConvertToDto(x)));
   }
 
   [HttpPost()]
-  public async Task<ActionResult<CategoryDto>> Create(ProductDto dto)
+  public async Task<ActionResult<ProductResponseDto>> Create(ProductRequestDto dto)
   {
-    return Ok(await this.productRepository.AddAsync(ProductDto.ConvertToEntity(dto)));
+    return Ok(await this.productRepository.AddAsync(ProductRequestDto.ConvertToEntity(dto)));
   }
 
   [HttpGet("id/{id}")]
-  public async Task<ActionResult<CategoryDto>> FindOneById(string id)
+  public async Task<ActionResult<ProductResponseDto>> FindOneById(string id)
   {
     return Ok(await this.productRepository.GetByIdAsync(id));
   }
 
   [HttpPut("id/{id}")]
 
-  public async Task<ActionResult<CategoryDto>> Update(string id, ProductDto dto)
+  public async Task<ActionResult<ProductResponseDto>> Update(string id, ProductRequestDto dto)
   {
-    var cate = ProductDto.ConvertToEntity(dto);
+    var cate = ProductRequestDto.ConvertToEntity(dto);
     cate.Id = id;
     await this.productRepository.UpdateAsync(cate);
     return Ok();
   }
   [HttpDelete("id/{id}")]
-  public async Task<ActionResult<ProductDto>> Delete(string id)
+  public async Task<ActionResult<ProductResponseDto>> Delete(string id)
   {
     await this.productRepository.RemoveByIdAsync(id);
     return Ok();
