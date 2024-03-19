@@ -21,6 +21,7 @@ public record ProductDto
     internal static ProductDto ConvertToDto(Product product)
     {
         return new ProductDto(){
+            Id = product.Id,
         Name = product.Name,
         Description = product.Description,
         Price = product.Price,
@@ -35,6 +36,16 @@ public record ProductDto
 
     internal static Product ConvertToEntity(ProductDto product)
     {
-        throw new NotImplementedException();
+        return new Product(
+            product.Id,
+            product.Name,
+            product.Description,
+            product.Price,
+            product.ImageUrl,
+            product.Unit,
+            product.Quantity,
+            product.Tags,
+            product.CategoryId
+        );
     }
 }

@@ -30,11 +30,16 @@ public class Product : Entity
         Tags = tags;
         CategoryId = categoryId;
     }
-    public Product(string name, double price, string imageUrl)
+   public Product(string id ,string name, string description, double price, string imageUrl, string unit, int quantity, string tags, string categoryId)
     {
+        Id = id;
         Name = name;
+        Description = description;
         Price = price;
         ImageUrl = imageUrl;
-
+        Unit = unit;
+        Quantity = quantity;
+        Tags = tags;
+        CategoryId = categoryId;
     }
 }

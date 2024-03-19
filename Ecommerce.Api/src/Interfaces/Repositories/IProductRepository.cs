@@ -9,5 +9,5 @@ namespace Ecommerce.Api.src.Interfaces.Repositories;
 
 public interface IProductRepository : IRepositoryBase<Product>
 {
-    Task<IEnumerable<Product>> GetAllProducts();
+    
 }

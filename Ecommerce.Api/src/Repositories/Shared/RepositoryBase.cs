@@ -13,7 +13,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
 {
     protected readonly DataContext Context;
     public RepositoryBase(DataContext dataContext) =>
-   Context = dataContext;
+    Context = dataContext;
     public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await Context.Set<TEntity>()
@@ -32,10 +32,10 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
 
     public virtual async Task UpdateAsync(TEntity objeto)
     {
-          var objetUpdate = await GetByIdAsync("41259109-0478-43e6-8a3f-1addc3a5c349");
+        var objetUpdate = await GetByIdAsync(objeto.Id);
         if (objetUpdate == null)
             throw new Exception("O registro não existe na base de dados.");
-         foreach (var prop in objeto.GetType().GetProperties())
+        foreach (var prop in objeto.GetType().GetProperties())
         {
             var entityProp = typeof(TEntity).GetProperty(prop.Name);
             if (entityProp != null)
@@ -43,7 +43,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
                 entityProp.SetValue(objetUpdate, prop.GetValue(objeto));
             }
         }
-         Context.Entry(objetUpdate).State = EntityState.Modified;
+        Context.Entry(objetUpdate).State = EntityState.Modified;
         await Context.SaveChangesAsync();
     }
 
