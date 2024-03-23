@@ -17,12 +17,12 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
     }
 
-
+        /*
     public Task<IEnumerable<Product>> GetAllProducts()
     {
         Product[] products =
      [
-         new Product ( "Camiseta básica",  19.99,  "https://m.media-amazon.com/images/I/417S18ZulVL._AC_SX679_.jpg" ),
+    new Product ( "Camiseta básica",  19.99,  "https://m.media-amazon.com/images/I/417S18ZulVL._AC_SX679_.jpg" ),
       new Product ( "Calça jeans",  39.99,  "https://m.media-amazon.com/images/I/417S18ZulVL._AC_SX679_.jpg" ),
       new Product ( "Tênis esportivo",  59.99,  "https://m.media-amazon.com/images/I/417S18ZulVL._AC_SX679_.jpg" ),
       new Product ( "Relógio de pulso",  79.99,  "https://m.media-amazon.com/images/I/417S18ZulVL._AC_SX679_.jpg" ),
@@ -32,4 +32,5 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
    ];
         return Task.FromResult<IEnumerable<Product>>(products);
     }
+    */
 }
