@@ -28,6 +28,7 @@ public static class NativeInjectorConfig
         services.AddScoped<ICartRepository, CartRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICouponRepository, CouponRepository>();
         services.AddScoped<IIdentityService, IdentityService>();
     }
 }
