@@ -15,6 +15,7 @@ public class DataContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<CartDetail> CartDetails { get; set; }
     public DbSet<CartHeader> CartHeaders { get; set; }
+    public DbSet<Coupon> Coupons { get; set; }
 
 
     public DataContext(DbContextOptions<DataContext> options) : base(options) { }
