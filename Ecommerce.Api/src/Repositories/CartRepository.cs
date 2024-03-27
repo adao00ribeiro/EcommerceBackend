@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Ecommerce.Api.src.Context;
 using Ecommerce.Api.src.DTOs;
 using Ecommerce.Api.src.Entities;
@@ -71,7 +67,14 @@ public class CartRepository(DataContext _dataContext) : ICartRepository
     }
     public async Task<bool> RemoveCoupon(string userId)
     {
-        throw new NotImplementedException();
+       var header = await dataContext.CartHeaders.Where(c => c.UserId == userId).FirstOrDefaultAsync();
+        if (header is null)
+        {
+            return false;
+        }
+        dataContext.CartHeaders.Update(new CartHeader(header.UserId, ""));
+        await dataContext.SaveChangesAsync();
+        return true;
     }
     public async Task<bool> RemoveFromCart(string cartDetailsId)
     {
